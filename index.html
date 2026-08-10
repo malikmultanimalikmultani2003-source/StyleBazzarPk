@@ -4,338 +4,609 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Style Bazaar PK</title>
-<meta name="description" content="Style Bazaar PK - Beauty, skincare and lifestyle products.">
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#fafafa;color:#222}
-a{text-decoration:none;color:inherit}
-header{background:#111;color:#fff;position:sticky;top:0;z-index:20}
-.nav{max-width:1200px;margin:auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:15px}
-.logo img{width:58px;height:58px;border-radius:50%;object-fit:cover}
-nav{display:flex;gap:18px;font-size:14px}
-.hero{background:linear-gradient(135deg,#f1e7df,#fff);padding:60px 18px}
-.hero-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:30px}
-.hero h1{font-size:clamp(36px,6vw,65px);line-height:1;margin-bottom:18px}
-.hero h1 span{display:block}
-.hero p{font-size:17px;color:#666;line-height:1.7;margin-bottom:25px}
-.btn{display:inline-block;background:#111;color:#fff;padding:13px 22px;border-radius:30px;font-weight:700}
-.hero-card{min-height:300px;border-radius:28px;background:#fff;display:grid;place-items:center;box-shadow:0 15px 45px #0001;font-size:90px}
-.section{max-width:1200px;margin:auto;padding:45px 18px}
-.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px}
-.section h2{font-size:30px}
-.categories{display:flex;gap:12px;overflow:auto;padding-bottom:15px}
-.cat{border:1px solid #ddd;background:#fff;border-radius:25px;padding:11px 18px;white-space:nowrap;cursor:pointer}
-.cat.active,.cat:hover{background:#111;color:#fff}
-.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.product{background:#fff;border-radius:18px;overflow:hidden;border:1px solid #eee}
-.product-img{height:230px;background:#f4f4f4;display:grid;place-items:center}
-.placeholder{font-size:55px;color:#aaa}
-.info{padding:15px}
-.badge{font-size:11px;background:#eee;border-radius:20px;padding:5px 9px;display:inline-block;margin-bottom:9px}
-.info h3{font-size:16px;margin-bottom:9px;min-height:38px}
-.price{font-weight:800;font-size:18px;margin-bottom:12px}
-.order{display:block;width:100%;text-align:center;background:#111;color:#fff;padding:10px;border-radius:10px;font-weight:700;border:0;cursor:pointer}
-.about{background:#111;color:#fff;border-radius:25px;padding:35px}
-.about p{color:#ccc;line-height:1.7;margin-top:10px}
-.field{padding:13px 14px;border:1px solid #ddd;border-radius:10px;font:inherit;outline:none}
-footer{background:#111;color:#fff;text-align:center;padding:28px 18px}
-.whatsapp{position:fixed;right:18px;bottom:18px;background:#25d366;color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:27px;z-index:30}
-@media(max-width:900px){.products{grid-template-columns:repeat(3,1fr)}.hero-inner{grid-template-columns:1fr}}
-@media(max-width:650px){nav{display:none}.products{grid-template-columns:repeat(2,1fr);gap:12px}.product-img{height:190px}.hero{padding:42px 18px}.section{padding:32px 14px}}
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#fafafa;
+color:#222
+}
+
+header{
+background:#111;
+color:white;
+position:sticky;
+top:0;
+z-index:10
+}
+
+.nav{
+max-width:1200px;
+margin:auto;
+padding:8px 18px;
+display:flex;
+align-items:center;
+justify-content:space-between
+}
+
+.logo{
+width:58px;
+height:58px;
+border-radius:50%;
+object-fit:cover
+}
+
+.nav a{
+color:white;
+text-decoration:none;
+margin-left:18px
+}
+
+.hero{
+padding:65px 18px;
+background:linear-gradient(135deg,#f2e8df,#fff)
+}
+
+.heroIn{
+max-width:1200px;
+margin:auto
+}
+
+h1{
+font-size:55px;
+margin:0 0 15px
+}
+
+.hero p{
+max-width:600px;
+color:#666;
+line-height:1.7
+}
+
+.btn{
+display:inline-block;
+background:#111;
+color:white;
+border:0;
+border-radius:25px;
+padding:13px 22px;
+text-decoration:none;
+cursor:pointer;
+font-weight:bold
+}
+
+section{
+max-width:1200px;
+margin:auto;
+padding:45px 18px
+}
+
+.cats{
+display:flex;
+gap:10px;
+overflow:auto;
+margin:20px 0
+}
+
+.cat{
+padding:10px 18px;
+border:1px solid #ddd;
+border-radius:25px;
+background:white;
+cursor:pointer
+}
+
+.cat.active{
+background:#111;
+color:white
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px
+}
+
+.product{
+background:white;
+border:1px solid #eee;
+border-radius:16px;
+overflow:hidden
+}
+
+.pic{
+height:220px;
+background:#f4f4f4;
+display:grid;
+place-items:center;
+font-size:55px
+}
+
+.info{
+padding:15px
+}
+
+.price{
+font-size:18px;
+font-weight:bold;
+margin:10px 0
+}
+
+.add{
+width:100%;
+padding:11px;
+background:#111;
+color:white;
+border:0;
+border-radius:9px;
+cursor:pointer
+}
+
+.checkout{
+background:white;
+border:1px solid #eee;
+border-radius:20px;
+padding:25px
+}
+
+.field{
+width:100%;
+padding:13px;
+margin-top:12px;
+border:1px solid #ddd;
+border-radius:9px;
+font:inherit
+}
+
+.cart{
+margin:20px 0
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 0;
+border-bottom:1px solid #eee
+}
+
+.qty button{
+width:30px;
+height:30px;
+border:1px solid #ddd;
+background:white;
+border-radius:6px;
+cursor:pointer
+}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:30px
+}
+
+.wa{
+position:fixed;
+right:18px;
+bottom:18px;
+background:#25d366;
+color:white;
+width:58px;
+height:58px;
+border-radius:50%;
+display:grid;
+place-items:center;
+font-size:26px
+}
+
+@media(max-width:800px){
+.products{
+grid-template-columns:repeat(2,1fr)
+}
+
+h1{
+font-size:42px
+}
+}
+
+@media(max-width:500px){
+.products{
+gap:10px
+}
+
+.pic{
+height:170px
+}
+
+.nav a{
+display:none
+}
+}
 </style>
 </head>
 
 <body>
 
 <header>
+
 <div class="nav">
 
-<a class="logo" href="#">
-<img src="data:image/jpeg;base64,REPLACE_WITH_YOUR_LOGO_BASE64">
+<a href="#home">
+<img class="logo"
+src="https://raw.githubusercontent.com/malikmultanimalikmultani2003-source/StyleBazzarPk/main/logo.jpeg"
+alt="Style Bazaar PK">
 </a>
 
-<nav>
-<a href="#home">Home</a>
+<div>
 <a href="#products">Products</a>
-<a href="#checkout">Cart (<span id="cartCount">0</span>)</a>
-<a href="#about">About</a>
-</nav>
+<a href="#checkout">
+🛒 Cart (<span id="count">0</span>)
+</a>
+</div>
 
 </div>
+
 </header>
 
-<main>
 
-<section class="hero" id="home">
-<div class="hero-inner">
-<div>
-<h1>Style <span>Bazaar PK</span></h1>
-<p>Discover quality beauty, skincare and lifestyle products — carefully selected for your everyday needs.</p>
-<a class="btn" href="#products">Shop Now →</a>
+<div class="hero" id="home">
+
+<div class="heroIn">
+
+<h1>Style Bazaar PK</h1>
+
+<p>
+Discover quality beauty, skincare and lifestyle products —
+carefully selected for your everyday needs.
+</p>
+
+<a class="btn" href="#products">
+Shop Now →
+</a>
+
 </div>
-<div class="hero-card">🛍️</div>
+
 </div>
-</section>
 
-<section class="section" id="products">
 
-<div class="section-head">
-<div>
+<section id="products">
+
 <h2>Our Products</h2>
-<p style="color:#777;margin-top:6px">Choose your products and add them to cart.</p>
-</div>
+
+<div class="cats">
+
+<button class="cat active"
+onclick="filter('all',this)">
+All
+</button>
+
+<button class="cat"
+onclick="filter('skincare',this)">
+Skincare
+</button>
+
+<button class="cat"
+onclick="filter('beauty',this)">
+Beauty
+</button>
+
+<button class="cat"
+onclick="filter('hair',this)">
+Hair Care
+</button>
+
 </div>
 
-<div class="categories">
-<button class="cat active" onclick="filterProducts('all',this)">All</button>
-<button class="cat" onclick="filterProducts('skincare',this)">Skincare</button>
-<button class="cat" onclick="filterProducts('beauty',this)">Beauty</button>
-<button class="cat" onclick="filterProducts('hair',this)">Hair Care</button>
-<button class="cat" onclick="filterProducts('accessories',this)">Accessories</button>
-</div>
 
 <div class="products">
 
-<article class="product" data-category="skincare">
-<div class="product-img"><div class="placeholder">🧴</div></div>
-<div class="info">
-<span class="badge">Skincare</span>
-<h3>Premium Skincare Product</h3>
-<div class="price">Rs. 1,499</div>
-<button class="order" onclick="addToCart('Premium Skincare Product',1499)">Add to Cart</button>
-</div>
-</article>
 
-<article class="product" data-category="beauty">
-<div class="product-img"><div class="placeholder">✨</div></div>
-<div class="info">
-<span class="badge">Beauty</span>
-<h3>Beauty Essentials</h3>
-<div class="price">Rs. 999</div>
-<button class="order" onclick="addToCart('Beauty Essentials',999)">Add to Cart</button>
-</div>
-</article>
+<div class="product" data-cat="skincare">
 
-<article class="product" data-category="hair">
-<div class="product-img"><div class="placeholder">🧴</div></div>
-<div class="info">
-<span class="badge">Hair Care</span>
-<h3>Hair Care Essential</h3>
-<div class="price">Rs. 1,199</div>
-<button class="order" onclick="addToCart('Hair Care Essential',1199)">Add to Cart</button>
+<div class="pic">
+🧴
 </div>
-</article>
 
-<article class="product" data-category="accessories">
-<div class="product-img"><div class="placeholder">💎</div></div>
 <div class="info">
-<span class="badge">Accessories</span>
-<h3>Stylish Everyday Accessory</h3>
-<div class="price">Rs. 799</div>
-<button class="order" onclick="addToCart('Stylish Everyday Accessory',799)">Add to Cart</button>
+
+<b>Premium Skincare Product</b>
+
+<div class="price">
+Rs. 1,499
 </div>
-</article>
+
+<button class="add"
+onclick="add('Premium Skincare Product',1499)">
+Add to Cart
+</button>
 
 </div>
+
+</div>
+
+
+
+<div class="product" data-cat="beauty">
+
+<div class="pic">
+✨
+</div>
+
+<div class="info">
+
+<b>Beauty Essentials</b>
+
+<div class="price">
+Rs. 999
+</div>
+
+<button class="add"
+onclick="add('Beauty Essentials',999)">
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="product" data-cat="hair">
+
+<div class="pic">
+🧴
+</div>
+
+<div class="info">
+
+<b>Hair Care Essential</b>
+
+<div class="price">
+Rs. 1,199
+</div>
+
+<button class="add"
+onclick="add('Hair Care Essential',1199)">
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="product" data-cat="beauty">
+
+<div class="pic">
+💎
+</div>
+
+<div class="info">
+
+<b>Stylish Beauty Accessory</b>
+
+<div class="price">
+Rs. 799
+</div>
+
+<button class="add"
+onclick="add('Stylish Beauty Accessory',799)">
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="section" id="checkout">
 
-<div class="about" style="background:#fff;color:#222;border:1px solid #eee">
+<section id="checkout">
 
-<h2>Checkout</h2>
+<div class="checkout">
 
-<p style="color:#777;margin-top:8px">
-Apna order website par complete karein. Details submit karne ke baad order WhatsApp par send ho jayega.
+<h2>
+Checkout
+</h2>
+
+<p>
+Order website par complete karein.
+Submit karne ke baad WhatsApp par order send hoga.
 </p>
 
-<div id="cartItems" style="margin-top:22px"></div>
-
-<form id="orderForm" onsubmit="submitOrder(event)" style="margin-top:20px">
-
-<input id="customerName"
-required
-placeholder="Full Name"
-class="field"
-style="width:100%;margin-bottom:12px">
-
-<input id="customerPhone"
-required
-placeholder="Phone Number"
-type="tel"
-class="field"
-style="width:100%;margin-bottom:12px">
-
-<input id="customerAddress"
-required
-placeholder="Complete Delivery Address"
-class="field"
-style="width:100%;margin-bottom:12px">
-
-<textarea id="customerNote"
-placeholder="Order Note (optional)"
-class="field"
-style="width:100%;min-height:90px"></textarea>
-
-<div id="orderTotal"
-style="font-size:21px;font-weight:800;margin:18px 0">
-Total: Rs. 0
+<div class="cart" id="cart">
 </div>
 
-<button type="submit" class="btn" style="border:0;cursor:pointer">
+
+<form onsubmit="place(event)">
+
+<input
+class="field"
+id="name"
+placeholder="Full Name"
+required
+>
+
+<input
+class="field"
+id="phone"
+placeholder="Phone Number"
+required
+>
+
+<textarea
+class="field"
+id="address"
+placeholder="Complete Delivery Address"
+required>
+</textarea>
+
+<textarea
+class="field"
+id="note"
+placeholder="Order Note (optional)">
+</textarea>
+
+<h3 id="total">
+Total: Rs. 0
+</h3>
+
+<button
+class="btn"
+type="submit">
+
 Place Order & Send on WhatsApp
+
 </button>
 
 </form>
-</div>
-</section>
-
-<section class="section" id="about">
-
-<div class="about">
-
-<h2>About Style Bazaar PK</h2>
-
-<p>
-Style Bazaar PK brings you carefully selected beauty and lifestyle products at competitive prices.
-Browse our collection and place your order directly through WhatsApp.
-</p>
 
 </div>
 
 </section>
 
-</main>
 
 <footer>
-<p>© 2026 Style Bazaar PK. All rights reserved.</p>
-<p style="margin-top:7px;color:#aaa">
+
+© 2026 Style Bazaar PK
+
+<br>
+
+<small>
 Beauty • Skincare • Lifestyle
-</p>
+</small>
+
 </footer>
 
-<a class="whatsapp"
+
+<a
+class="wa"
 href="https://wa.me/923196488623"
 target="_blank">
+
 ☏
+
 </a>
+
 
 <script>
 
 let cart=[];
 
-function addToCart(name,price){
 
-const existing=cart.find(item=>item.name===name);
+function add(name,price){
 
-if(existing){
-existing.qty++;
-}else{
+let x=cart.find(i=>i.name===name);
+
+if(x)
+
+x.qty++;
+
+else
+
 cart.push({
 name:name,
 price:price,
 qty:1
 });
-}
 
-renderCart();
+render();
 
-document.getElementById("checkout")
-.scrollIntoView({behavior:"smooth"});
-
-}
-
-function changeQty(index,amount){
-
-cart[index].qty+=amount;
-
-if(cart[index].qty<=0){
-cart.splice(index,1);
-}
-
-renderCart();
+document
+.getElementById("checkout")
+.scrollIntoView({
+behavior:"smooth"
+});
 
 }
 
-function renderCart(){
 
-const box=document.getElementById("cartItems");
+function qty(i,n){
 
-const count=cart.reduce(
-(sum,item)=>sum+item.qty,0
+cart[i].qty+=n;
+
+if(cart[i].qty<1)
+
+cart.splice(i,1);
+
+render();
+
+}
+
+
+function render(){
+
+let total=0;
+
+document
+.getElementById("count")
+.textContent=
+cart.reduce(
+(a,b)=>a+b.qty,
+0
 );
 
-document.getElementById("cartCount")
-.textContent=count;
+let box=
+document.getElementById("cart");
 
-if(cart.length===0){
+if(!cart.length){
 
 box.innerHTML=
-'<div style="padding:18px;background:#f7f7f7;border-radius:12px;color:#777">Cart empty hai. Pehle product add karein.</div>';
+"<p style='color:#777'>Cart empty hai.</p>";
 
-document.getElementById("orderTotal")
-.textContent="Total: Rs. 0";
+document
+.getElementById("total")
+.textContent=
+"Total: Rs. 0";
 
 return;
 
 }
 
-let total=0;
 
-box.innerHTML=cart.map((item,index)=>{
+box.innerHTML=
+cart.map((x,i)=>{
 
-const subtotal=item.price*item.qty;
+let subtotal=
+x.price*x.qty;
 
 total+=subtotal;
 
 return `
 
-<div style="
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:12px;
-padding:14px 0;
-border-bottom:1px solid #eee">
+<div class="row">
 
 <div>
 
-<b>${item.name}</b>
+<b>${x.name}</b>
 
 <br>
 
-<small>
-Rs. ${item.price.toLocaleString()}
-× ${item.qty}
-</small>
+Rs. ${x.price.toLocaleString()}
+× ${x.qty}
 
 </div>
 
-<div style="display:flex;align-items:center;gap:8px">
+<div class="qty">
 
 <button
 type="button"
-onclick="changeQty(${index},-1)"
-style="
-width:32px;
-height:32px;
-border:1px solid #ddd;
-border-radius:8px;
-background:#fff">
+onclick="qty(${i},-1)">
 −
 </button>
 
-<b>${item.qty}</b>
+${x.qty}
 
 <button
 type="button"
-onclick="changeQty(${index},1)"
-style="
-width:32px;
-height:32px;
-border:1px solid #ddd;
-border-radius:8px;
-background:#fff">
+onclick="qty(${i},1)">
 +
 </button>
 
@@ -347,96 +618,100 @@ background:#fff">
 
 }).join("");
 
-document.getElementById("orderTotal")
+
+document
+.getElementById("total")
 .textContent=
-"Total: Rs. "+total.toLocaleString();
+"Total: Rs. "+
+total.toLocaleString();
 
 }
 
-function submitOrder(event){
 
-event.preventDefault();
+function place(e){
 
-if(cart.length===0){
+e.preventDefault();
 
-alert("Please pehle kam az kam 1 product cart mein add karein.");
+if(!cart.length){
+
+alert(
+"Pehle product cart mein add karein."
+);
 
 return;
 
 }
 
-const name=
-document.getElementById("customerName")
-.value.trim();
-
-const phone=
-document.getElementById("customerPhone")
-.value.trim();
-
-const address=
-document.getElementById("customerAddress")
-.value.trim();
-
-const note=
-document.getElementById("customerNote")
-.value.trim();
 
 let total=0;
 
-let itemsText=cart.map(item=>{
 
-const subtotal=item.price*item.qty;
+let items=
+cart.map(x=>{
 
-total+=subtotal;
+let s=
+x.price*x.qty;
 
-return `• ${item.name} — Qty: ${item.qty} — Rs. ${subtotal.toLocaleString()}`;
+total+=s;
 
-}).join("%0A");
+return "• "+
+x.name+
+" — Qty: "+
+x.qty+
+" — Rs. "+
+s.toLocaleString();
 
-const message=
+}).join("\n");
 
-`*NEW ORDER - STYLE BAZAAR PK*%0A%0A`+
 
-`*Products:*%0A${itemsText}%0A%0A`+
+let msg=
+"*NEW ORDER - STYLE BAZAAR PK*\n\n"+
+"*Products:*\n"+
+items+
+"\n\n"+
+"*Total: Rs. "+
+total.toLocaleString()+
+"*\n\n"+
+"*Name:* "+
+document.getElementById("name").value+
+"\n"+
+"*Phone:* "+
+document.getElementById("phone").value+
+"\n"+
+"*Address:* "+
+document.getElementById("address").value+
+"\n"+
+"*Note:* "+
+document.getElementById("note").value;
 
-`*Total: Rs. ${total.toLocaleString()}*%0A%0A`+
-
-`*Customer Name:* ${encodeURIComponent(name)}%0A`+
-
-`*Phone:* ${encodeURIComponent(phone)}%0A`+
-
-`*Address:* ${encodeURIComponent(address)}%0A`+
-
-(note ?
-`*Note:* ${encodeURIComponent(note)}%0A`
-:"")+
-
-`%0AOrder website se place kiya gaya hai.`;
 
 window.open(
-`https://wa.me/923196488623?text=${message}`,
+"https://wa.me/923196488623?text="+
+encodeURIComponent(msg),
 "_blank"
 );
 
 }
 
-function filterProducts(category,button){
+
+function filter(c,b){
 
 document
 .querySelectorAll(".cat")
-.forEach(b=>b.classList.remove("active"));
+.forEach(x=>
+x.classList.remove("active")
+);
 
-button.classList.add("active");
+b.classList.add("active");
+
 
 document
 .querySelectorAll(".product")
-.forEach(product=>{
+.forEach(x=>{
 
-product.style.display=
-(
-category==="all" ||
-product.dataset.category===category
-)
+x.style.display=
+c==="all" ||
+x.dataset.cat===c
 ?"block"
 :"none";
 
@@ -444,7 +719,8 @@ product.dataset.category===category
 
 }
 
-renderCart();
+
+render();
 
 </script>
 
