@@ -3,226 +3,733 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StyleBazaarPK</title>
+<title>Style Bazaar PK — Beauty & Skincare</title>
+<meta name="description" content="Style Bazaar PK — beauty, skincare and personal care products.">
 <style>
-*{box-sizing:border-box}
-
+:root{
+--bg:#111317;
+--panel:#1a1d22;
+--text:#f7f3ef;
+--muted:#a9adb5;
+--accent:#ff2851;
+--accent2:#ff5d78;
+--gold:#d9aa62;
+--line:rgba(255,255,255,.09);
+--max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#fafafa;
-color:#222
+font-family:Arial,Helvetica,sans-serif;
+background:#0d0f12;
+color:var(--text);
+line-height:1.5
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(var(--max),92%);margin:auto}
+
+.topbar{
+background:#090a0c;
+color:#c8cbd1;
+font-size:12px;
+text-align:center;
+padding:9px 15px;
+letter-spacing:.4px
 }
 
 header{
-background:#111;
-color:white;
 position:sticky;
 top:0;
-z-index:10
+z-index:50;
+background:rgba(13,15,18,.94);
+backdrop-filter:blur(14px);
+border-bottom:1px solid var(--line)
 }
 
 .nav{
-max-width:1200px;
-margin:auto;
-padding:8px 18px;
+height:76px;
 display:flex;
 align-items:center;
-justify-content:space-between
+justify-content:space-between;
+gap:25px
 }
 
 .logo{
-width:58px;
-height:58px;
-border-radius:50%;
-object-fit:cover
+font-family:Georgia,serif;
+font-size:25px;
+font-weight:700
 }
+.logo span{color:var(--accent)}
 
-.nav a{
-color:white;
-text-decoration:none;
-margin-left:18px
-}
-
-.hero{
-padding:65px 18px;
-background:linear-gradient(135deg,#f2e8df,#fff)
-}
-
-.heroIn{
-max-width:1200px;
-margin:auto
-}
-
-h1{
-font-size:55px;
-margin:0 0 15px
-}
-
-.hero p{
-max-width:600px;
-color:#666;
-line-height:1.7
-}
-
-.btn{
-display:inline-block;
-background:#111;
-color:white;
-border:0;
-border-radius:25px;
-padding:13px 22px;
-text-decoration:none;
-cursor:pointer;
-font-weight:bold
-}
-
-section{
-max-width:1200px;
-margin:auto;
-padding:45px 18px
-}
-
-.cats{
+.navlinks{
 display:flex;
-gap:10px;
-overflow:auto;
-margin:20px 0
+gap:28px;
+color:#ddd;
+font-size:14px
+}
+.navlinks a:hover{color:#fff}
+
+.nav-actions{
+display:flex;
+align-items:center;
+gap:10px
 }
 
-.cat{
-padding:10px 18px;
-border:1px solid #ddd;
-border-radius:25px;
-background:white;
+.iconbtn{
+width:40px;
+height:40px;
+border:1px solid var(--line);
+background:#181b20;
+color:#fff;
+border-radius:50%;
 cursor:pointer
 }
 
-.cat.active{
-background:#111;
-color:white
+.cart{position:relative}
+.cart small{
+position:absolute;
+right:-2px;
+top:-3px;
+background:var(--accent);
+width:17px;
+height:17px;
+border-radius:50%;
+font-size:10px;
+display:grid;
+place-items:center
+}
+
+.menu{display:none}
+
+.hero{padding:24px 0 0}
+
+.hero-box{
+min-height:540px;
+background:
+radial-gradient(circle at 82% 30%,rgba(255,40,81,.18),transparent 26%),
+linear-gradient(110deg,#171b21 0%,#232832 55%,#343a43 100%);
+position:relative;
+overflow:hidden;
+border-radius:4px
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+padding:78px 7% 70px;
+max-width:720px
+}
+
+.kicker{
+display:inline-flex;
+background:var(--accent);
+padding:8px 13px;
+border-radius:2px;
+font-size:11px;
+font-weight:700;
+letter-spacing:1px;
+text-transform:uppercase;
+margin-bottom:18px
+}
+
+.hero h1{
+font-family:Georgia,serif;
+font-size:clamp(48px,7vw,82px);
+line-height:.92;
+letter-spacing:-2px;
+margin-bottom:18px
+}
+
+.hero h1 span{display:block}
+
+.hero p{
+color:#c9cbd0;
+max-width:500px;
+font-size:15px;
+margin-bottom:28px
+}
+
+.cta{
+display:inline-flex;
+align-items:center;
+gap:10px;
+background:var(--accent);
+color:#fff;
+padding:13px 21px;
+font-size:13px;
+font-weight:700;
+border-radius:2px;
+transition:.2s
+}
+
+.cta:hover{
+transform:translateY(-2px);
+background:var(--accent2)
+}
+
+.discount{
+position:absolute;
+right:9%;
+top:55px;
+width:92px;
+height:92px;
+background:var(--accent);
+border-radius:50%;
+display:grid;
+place-items:center;
+text-align:center;
+font-weight:800;
+font-size:14px;
+line-height:1.1;
+transform:rotate(7deg)
+}
+
+.discount span{
+font-size:10px;
+font-weight:500
+}
+
+.hero-products{
+position:absolute;
+right:4%;
+bottom:0;
+width:49%;
+height:62%;
+display:flex;
+align-items:flex-end;
+justify-content:center;
+gap:18px;
+filter:drop-shadow(0 25px 25px rgba(0,0,0,.35))
+}
+
+.bottle,.jar,.tube{
+background:linear-gradient(90deg,#5e646b,#31363d 45%,#777d84);
+position:relative;
+box-shadow:
+inset 3px 0 5px rgba(255,255,255,.08),
+inset -5px 0 10px rgba(0,0,0,.25)
+}
+
+.bottle{
+width:72px;
+height:220px;
+border-radius:12px 12px 7px 7px
+}
+
+.bottle:before{
+content:"";
+position:absolute;
+left:13px;
+right:13px;
+top:-23px;
+height:25px;
+background:#c79654;
+border-radius:5px 5px 2px 2px
+}
+
+.bottle.pump:before{
+height:38px;
+top:-36px;
+border-radius:4px
+}
+
+.bottle.pump:after{
+content:"";
+position:absolute;
+left:32px;
+top:-42px;
+width:42px;
+height:7px;
+background:#d2a463;
+border-radius:5px
+}
+
+.tube{
+width:70px;
+height:200px;
+border-radius:10px 10px 5px 5px;
+transform:skew(-3deg)
+}
+
+.tube:before{
+content:"";
+position:absolute;
+bottom:-17px;
+left:18px;
+width:35px;
+height:20px;
+background:#c79654;
+border-radius:3px
+}
+
+.jar{
+width:112px;
+height:75px;
+border-radius:10px 10px 22px 22px
+}
+
+.jar:before{
+content:"";
+position:absolute;
+top:-15px;
+left:3px;
+right:3px;
+height:20px;
+border-radius:7px;
+background:#c79654
+}
+
+.product-label{
+position:absolute;
+left:9px;
+right:9px;
+top:55%;
+text-align:center;
+color:#d9dce0;
+font-size:7px;
+letter-spacing:1px
+}
+
+.hero-note{
+position:absolute;
+bottom:25px;
+right:7%;
+font-size:11px;
+color:#b7bbc1;
+letter-spacing:1px
+}
+
+.section{padding:70px 0}
+
+.section-head{
+display:flex;
+align-items:end;
+justify-content:space-between;
+margin-bottom:25px
+}
+
+.section-head h2{
+font-family:Georgia,serif;
+font-size:34px
+}
+
+.section-head p{
+color:var(--muted);
+font-size:13px
+}
+
+.categories{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px
+}
+
+.category{
+min-height:170px;
+background:var(--panel);
+border:1px solid var(--line);
+display:flex;
+flex-direction:column;
+justify-content:end;
+padding:22px;
+position:relative;
+overflow:hidden
+}
+
+.category:after{
+content:"";
+position:absolute;
+width:150px;
+height:150px;
+border-radius:50%;
+right:-45px;
+top:-45px;
+background:rgba(255,40,81,.12)
+}
+
+.category h3{
+font-family:Georgia,serif;
+font-size:22px;
+position:relative;
+z-index:1
+}
+
+.category p{
+font-size:12px;
+color:var(--muted);
+position:relative;
+z-index:1
+}
+
+.flash{
+background:#1c2026;
+padding:38px 0;
+border-top:1px solid var(--line);
+border-bottom:1px solid var(--line)
+}
+
+.flash-grid{
+display:grid;
+grid-template-columns:1fr 1.6fr;
+gap:28px;
+align-items:center
+}
+
+.flash-copy h2{
+font-family:Georgia,serif;
+font-size:42px;
+line-height:1
+}
+
+.flash-copy p{
+color:var(--muted);
+margin:15px 0 20px;
+font-size:14px;
+max-width:410px
+}
+
+.timer{
+display:flex;
+gap:8px;
+margin:18px 0 22px
+}
+
+.time{
+background:#0f1114;
+border:1px solid var(--line);
+padding:10px 12px;
+min-width:58px;
+text-align:center
+}
+
+.time b{
+display:block;
+font-size:20px
+}
+
+.time span{
+font-size:9px;
+color:var(--muted);
+text-transform:uppercase
+}
+
+.flash-products{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px
+}
+
+.deal-card{
+background:#292e35;
+padding:16px;
+min-height:260px;
+position:relative
+}
+
+.deal-image{
+height:150px;
+display:grid;
+place-items:center;
+background:#343a42;
+margin-bottom:12px
+}
+
+.mini-product{
+width:70px;
+height:110px;
+border-radius:8px;
+background:linear-gradient(90deg,#777d83,#343a41);
+position:relative
+}
+
+.mini-product:before{
+content:"";
+position:absolute;
+top:-12px;
+left:8px;
+right:8px;
+height:13px;
+background:#c79654;
+border-radius:3px
+}
+
+.deal-card h3{font-size:14px}
+
+.price{
+font-weight:700;
+margin-top:5px
+}
+
+.old{
+text-decoration:line-through;
+color:#7d8188;
+font-size:11px;
+margin-left:5px;
+font-weight:400
+}
+
+.badge{
+position:absolute;
+top:10px;
+right:10px;
+background:var(--accent);
+padding:5px 7px;
+font-size:9px;
+font-weight:700
 }
 
 .products{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:18px
+gap:16px
 }
 
-.product{
-background:white;
-border:1px solid #eee;
-border-radius:16px;
-overflow:hidden
+.card{
+background:#171a1f;
+border:1px solid var(--line);
+overflow:hidden;
+position:relative
 }
 
-.pic{
-height:220px;
-background:#f4f4f4;
+.card-img{
+height:245px;
+background:linear-gradient(135deg,#252a31,#3a4048);
 display:grid;
-place-items:center;
-font-size:55px
+place-items:center
 }
 
-.info{
-padding:15px
+.card-body{padding:16px}
+
+.card h3{
+font-size:15px;
+margin-bottom:5px
 }
 
-.price{
-font-size:18px;
-font-weight:bold;
-margin:10px 0
+.rating{
+color:#d9aa62;
+font-size:11px
+}
+
+.price-row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-top:12px
 }
 
 .add{
-width:100%;
-padding:11px;
-background:#111;
-color:white;
-border:0;
-border-radius:9px;
+border:1px solid var(--line);
+background:#24282e;
+color:#fff;
+padding:8px 11px;
+font-size:11px;
 cursor:pointer
 }
 
-.checkout{
-background:white;
-border:1px solid #eee;
-border-radius:20px;
-padding:25px
-}
+.add:hover{background:var(--accent)}
 
-.field{
-width:100%;
-padding:13px;
-margin-top:12px;
-border:1px solid #ddd;
+.product-shape{
+width:88px;
+height:150px;
+background:linear-gradient(90deg,#697079,#2f343a 50%,#7b8289);
 border-radius:9px;
-font:inherit
+position:relative
 }
 
-.cart{
-margin:20px 0
+.product-shape:before{
+content:"";
+position:absolute;
+left:13px;
+right:13px;
+top:-18px;
+height:20px;
+background:#c79654;
+border-radius:4px
 }
 
-.row{
+.banner{
+margin-top:70px;
+background:linear-gradient(100deg,#15181d,#292f38);
+padding:45px 6%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:14px 0;
-border-bottom:1px solid #eee
+gap:30px
 }
 
-.qty button{
-width:30px;
-height:30px;
-border:1px solid #ddd;
-background:white;
-border-radius:6px;
-cursor:pointer
+.banner h2{
+font-family:Georgia,serif;
+font-size:36px
+}
+
+.banner p{
+color:var(--muted);
+font-size:13px;
+margin-top:8px
 }
 
 footer{
-background:#111;
-color:white;
-text-align:center;
-padding:30px
+background:#090a0c;
+border-top:1px solid var(--line);
+padding:45px 0 25px;
+margin-top:70px
 }
 
-.wa{
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1fr;
+gap:35px
+}
+
+footer h3{
+font-family:Georgia,serif;
+margin-bottom:12px
+}
+
+footer p,footer a{
+color:#8f949d;
+font-size:12px;
+display:block;
+margin:7px 0
+}
+
+.copy{
+border-top:1px solid var(--line);
+margin-top:30px;
+padding-top:18px;
+color:#686d75;
+font-size:11px
+}
+
+.toast{
 position:fixed;
 right:18px;
 bottom:18px;
-background:#25d366;
-color:white;
-width:58px;
-height:58px;
-border-radius:50%;
-display:grid;
-place-items:center;
-font-size:26px
+background:#fff;
+color:#111;
+padding:12px 15px;
+font-size:12px;
+transform:translateY(90px);
+opacity:0;
+transition:.25s;
+z-index:100
 }
 
-@media(max-width:800px){
-.products{
-grid-template-columns:repeat(2,1fr)
+.toast.show{
+transform:none;
+opacity:1
 }
 
-h1{
-font-size:42px
+@media(max-width:900px){
+.navlinks{display:none}
+.menu{display:block}
+.hero-box{min-height:650px}
+.hero-content{padding:55px 7%}
+.hero-products{
+width:70%;
+height:43%;
+right:15%
 }
+.hero-note{display:none}
+.categories{grid-template-columns:repeat(2,1fr)}
+.flash-grid{grid-template-columns:1fr}
+.products{grid-template-columns:repeat(2,1fr)}
+.footer-grid{grid-template-columns:1fr 1fr}
 }
 
-@media(max-width:500px){
-.products{
-gap:10px
+@media(max-width:560px){
+.nav{height:66px}
+.logo{font-size:20px}
+.nav-actions .iconbtn:nth-child(2){display:none}
+
+.hero-box{min-height:620px}
+.hero h1{font-size:48px}
+.hero-content{padding:42px 6%}
+
+.discount{
+width:72px;
+height:72px;
+right:6%;
+top:28px;
+font-size:11px
 }
 
-.pic{
-height:170px
+.hero-products{
+width:100%;
+right:0;
+height:38%;
+gap:8px
 }
 
-.nav a{
+.bottle{
+width:52px;
+height:155px
+}
+
+.tube{
+width:52px;
+height:145px
+}
+
+.jar{
+width:80px;
+height:55px
+}
+
+.categories{
+grid-template-columns:1fr 1fr;
+gap:9px
+}
+
+.category{
+min-height:140px;
+padding:15px
+}
+
+.category h3{font-size:17px}
+
+.section{padding:50px 0}
+
+.section-head{
+display:block
+}
+
+.section-head h2{font-size:29px}
+.section-head p{margin-top:6px}
+
+.flash-copy h2{font-size:34px}
+
+.flash-products{
+grid-template-columns:1fr 1fr
+}
+
+.flash-products .deal-card:last-child{
 display:none
+}
+
+.products{
+grid-template-columns:1fr 1fr;
+gap:9px
+}
+
+.card-img{height:180px}
+.card-body{padding:11px}
+.card h3{font-size:12px}
+
+.product-shape{
+width:65px;
+height:115px
+}
+
+.banner{display:block}
+
+.banner .cta{
+margin-top:20px
+}
+
+.footer-grid{
+grid-template-columns:1fr 1fr;
+gap:22px
 }
 }
 </style>
@@ -230,496 +737,547 @@ display:none
 
 <body>
 
+<div class="topbar">
+✨ LIMITED TIME OFFER — BEAUTY DEALS UP TO 50% OFF ✨
+</div>
+
 <header>
+<div class="container nav">
 
-<div class="nav">
-
-<a href="#home">
-<img class="logo"
-src="https://raw.githubusercontent.com/malikmultanimalikmultani2003-source/StyleBazzarPk/main/logo.jpeg"
-alt="Style Bazaar PK">
+<a class="logo" href="#">
+Style <span>Bazaar</span> PK
 </a>
 
-<div>
-<a href="#products">Products</a>
-<a href="#checkout">
-🛒 Cart (<span id="count">0</span>)
-</a>
-</div>
+<nav class="navlinks">
+<a href="#home">Home</a>
+<a href="#shop">Shop</a>
+<a href="#deals">Deals</a>
+<a href="#categories">Categories</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="nav-actions">
+
+<button class="iconbtn"
+onclick="document.getElementById('shop').scrollIntoView()">
+⌕
+</button>
+
+<button class="iconbtn cart"
+onclick="document.getElementById('shop').scrollIntoView()">
+🛒
+<small id="count">0</small>
+</button>
+
+<button class="iconbtn menu">☰</button>
 
 </div>
-
+</div>
 </header>
 
+<main id="home">
 
-<div class="hero" id="home">
+<section class="hero container">
 
-<div class="heroIn">
+<div class="hero-box">
 
-<h1>Style Bazaar PK</h1>
+<div class="hero-content">
+
+<div class="kicker">
+Black Friday Sale
+</div>
+
+<h1>
+Beauty<br>
+<span>SALE</span>
+</h1>
 
 <p>
-Discover quality beauty, skincare and lifestyle products —
-carefully selected for your everyday needs.
+Discover skincare and beauty essentials at special prices.
+Fresh deals, elegant products and easy ordering — all in one place.
 </p>
 
-<a class="btn" href="#products">
-Shop Now →
+<a href="#deals" class="cta">
+SHOP NOW →
 </a>
 
 </div>
 
+<div class="discount">
+50%<br>
+<span>OFF</span>
+</div>
+
+<div class="hero-products">
+
+<div class="jar">
+<span class="product-label">SKINCARE</span>
+</div>
+
+<div class="tube">
+<span class="product-label">CREAM</span>
+</div>
+
+<div class="bottle pump">
+<span class="product-label">SERUM</span>
+</div>
+
+<div class="bottle">
+<span class="product-label">CARE</span>
+</div>
+
+<div class="tube">
+<span class="product-label">GLOW</span>
+</div>
+
+<div class="bottle">
+<span class="product-label">FACE</span>
+</div>
+
+</div>
+
+<div class="hero-note">
+STYLE BAZAAR PK • ELEVATE YOUR EVERYDAY
+</div>
+
+</div>
+</section>
+
+
+<section class="section container" id="categories">
+
+<div class="section-head">
+
+<h2>Shop by Category</h2>
+
+<p>
+Find your everyday beauty essentials
+</p>
+
+</div>
+
+<div class="categories">
+
+<a class="category" href="#shop">
+<h3>Skincare</h3>
+<p>Creams, cleansers & serums</p>
+</a>
+
+<a class="category" href="#shop">
+<h3>Beauty</h3>
+<p>Everyday beauty essentials</p>
+</a>
+
+<a class="category" href="#shop">
+<h3>Personal Care</h3>
+<p>Care products for you</p>
+</a>
+
+<a class="category" href="#shop">
+<h3>Best Sellers</h3>
+<p>Popular customer picks</p>
+</a>
+
+</div>
+</section>
+
+
+<section class="flash" id="deals">
+
+<div class="container flash-grid">
+
+<div class="flash-copy">
+
+<div class="kicker">
+Flash Deals
+</div>
+
+<h2>
+Limited Time,<br>
+Massive Savings!
+</h2>
+
+<p>
+Hurry, these deals won't last long.
+Grab your favourites before the offer ends.
+</p>
+
+<div class="timer">
+
+<div class="time">
+<b id="hh">08</b>
+<span>Hours</span>
+</div>
+
+<div class="time">
+<b id="mm">24</b>
+<span>Minutes</span>
+</div>
+
+<div class="time">
+<b id="ss">59</b>
+<span>Seconds</span>
+</div>
+
+</div>
+
+<a href="#shop" class="cta">
+SHOP DEALS
+</a>
+
 </div>
 
 
-<section id="products">
+<div class="flash-products">
 
-<h2>Our Products</h2>
+<div class="deal-card">
 
-<div class="cats">
+<div class="badge">-30%</div>
 
-<button class="cat active"
-onclick="filter('all',this)">
-All
-</button>
+<div class="deal-image">
+<div class="mini-product"></div>
+</div>
 
-<button class="cat"
-onclick="filter('skincare',this)">
-Skincare
-</button>
+<h3>Glow Face Cream</h3>
 
-<button class="cat"
-onclick="filter('beauty',this)">
-Beauty
-</button>
+<div class="price">
+Rs. 1,299
+<span class="old">Rs. 1,850</span>
+</div>
 
-<button class="cat"
-onclick="filter('hair',this)">
-Hair Care
-</button>
+</div>
+
+
+<div class="deal-card">
+
+<div class="badge">-25%</div>
+
+<div class="deal-image">
+<div class="mini-product" style="height:125px"></div>
+</div>
+
+<h3>Hydrating Serum</h3>
+
+<div class="price">
+Rs. 1,499
+<span class="old">Rs. 2,000</span>
+</div>
+
+</div>
+
+
+<div class="deal-card">
+
+<div class="badge">-20%</div>
+
+<div class="deal-image">
+<div class="mini-product" style="width:58px"></div>
+</div>
+
+<h3>Daily Cleanser</h3>
+
+<div class="price">
+Rs. 999
+<span class="old">Rs. 1,250</span>
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="section container" id="shop">
+
+<div class="section-head">
+
+<h2>Featured Products</h2>
+
+<p>
+Replace these demo products with your own products
+</p>
 
 </div>
 
 
 <div class="products">
 
+<article class="card">
 
-<div class="product" data-cat="skincare">
-
-<div class="pic">
-🧴
+<div class="card-img">
+<div class="product-shape"></div>
 </div>
 
-<div class="info">
+<div class="card-body">
 
-<b>Premium Skincare Product</b>
+<h3>Premium Face Cream</h3>
 
-<div class="price">
-Rs. 1,499
+<div class="rating">
+★★★★★ <span style="color:#888">4.9</span>
 </div>
+
+<div class="price-row">
+
+<strong>Rs. 1,499</strong>
 
 <button class="add"
-onclick="add('Premium Skincare Product',1499)">
-Add to Cart
+onclick="addToCart('Premium Face Cream')">
+ADD
 </button>
 
 </div>
+</div>
+</article>
+
+
+<article class="card">
+
+<div class="card-img">
+
+<div class="product-shape"
+style="height:140px;width:72px">
+</div>
 
 </div>
 
+<div class="card-body">
 
+<h3>Hydrating Serum</h3>
 
-<div class="product" data-cat="beauty">
-
-<div class="pic">
-✨
+<div class="rating">
+★★★★★ <span style="color:#888">4.8</span>
 </div>
 
-<div class="info">
+<div class="price-row">
 
-<b>Beauty Essentials</b>
-
-<div class="price">
-Rs. 999
-</div>
+<strong>Rs. 1,799</strong>
 
 <button class="add"
-onclick="add('Beauty Essentials',999)">
-Add to Cart
+onclick="addToCart('Hydrating Serum')">
+ADD
 </button>
 
 </div>
+</div>
+</article>
+
+
+<article class="card">
+
+<div class="card-img">
+
+<div class="product-shape"
+style="height:125px;width:110px;border-radius:12px 12px 25px 25px">
+</div>
 
 </div>
 
+<div class="card-body">
 
+<h3>Daily Moisturizer</h3>
 
-<div class="product" data-cat="hair">
-
-<div class="pic">
-🧴
+<div class="rating">
+★★★★★ <span style="color:#888">4.7</span>
 </div>
 
-<div class="info">
+<div class="price-row">
 
-<b>Hair Care Essential</b>
-
-<div class="price">
-Rs. 1,199
-</div>
+<strong>Rs. 1,250</strong>
 
 <button class="add"
-onclick="add('Hair Care Essential',1199)">
-Add to Cart
+onclick="addToCart('Daily Moisturizer')">
+ADD
 </button>
 
 </div>
+</div>
+</article>
+
+
+<article class="card">
+
+<div class="card-img">
+
+<div class="product-shape"
+style="height:160px;width:60px">
+</div>
 
 </div>
 
+<div class="card-body">
 
+<h3>Gentle Cleanser</h3>
 
-<div class="product" data-cat="beauty">
-
-<div class="pic">
-💎
+<div class="rating">
+★★★★★ <span style="color:#888">4.9</span>
 </div>
 
-<div class="info">
+<div class="price-row">
 
-<b>Stylish Beauty Accessory</b>
-
-<div class="price">
-Rs. 799
-</div>
+<strong>Rs. 999</strong>
 
 <button class="add"
-onclick="add('Stylish Beauty Accessory',799)">
-Add to Cart
+onclick="addToCart('Gentle Cleanser')">
+ADD
 </button>
 
 </div>
+</div>
+</article>
 
 </div>
 
-</div>
 
-</section>
+<div class="banner">
 
-
-<section id="checkout">
-
-<div class="checkout">
+<div>
 
 <h2>
-Checkout
+Order Easily on WhatsApp
 </h2>
 
 <p>
-Order website par complete karein.
-Submit karne ke baad WhatsApp par order send hoga.
+Choose your products and contact us directly for a quick order.
 </p>
 
-<div class="cart" id="cart">
 </div>
 
+<a
+class="cta"
+href="https://wa.me/923196488623?text=Assalam%20o%20Alaikum%2C%20mujhe%20Style%20Bazaar%20PK%20se%20product%20order%20karna%20hai."
+target="_blank">
 
-<form onsubmit="place(event)">
+ORDER ON WHATSAPP →
 
-<input
-class="field"
-id="name"
-placeholder="Full Name"
-required
->
-
-<input
-class="field"
-id="phone"
-placeholder="Phone Number"
-required
->
-
-<textarea
-class="field"
-id="address"
-placeholder="Complete Delivery Address"
-required>
-</textarea>
-
-<textarea
-class="field"
-id="note"
-placeholder="Order Note (optional)">
-</textarea>
-
-<h3 id="total">
-Total: Rs. 0
-</h3>
-
-<button
-class="btn"
-type="submit">
-
-Place Order & Send on WhatsApp
-
-</button>
-
-</form>
+</a>
 
 </div>
 
 </section>
 
+</main>
 
-<footer>
 
-© 2026 Style Bazaar PK
+<footer id="contact">
 
-<br>
+<div class="container">
 
-<small>
-Beauty • Skincare • Lifestyle
-</small>
+<div class="footer-grid">
 
+<div>
+
+<h3>Style Bazaar PK</h3>
+
+<p>
+Your everyday destination for beauty,
+skincare and personal care essentials.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>Shop</h3>
+
+<a href="#shop">All Products</a>
+<a href="#deals">Flash Deals</a>
+<a href="#categories">Categories</a>
+
+</div>
+
+
+<div>
+
+<h3>Help</h3>
+
+<a href="#contact">Contact Us</a>
+<a href="#">Delivery Info</a>
+<a href="#">Returns</a>
+
+</div>
+
+
+<div>
+
+<h3>Follow</h3>
+
+<a href="#">Instagram</a>
+
+<a
+href="https://wa.me/923196488623"
+target="_blank">
+WhatsApp
+</a>
+
+</div>
+
+</div>
+
+
+<div class="copy">
+
+© 2026 Style Bazaar PK.
+All rights reserved.
+
+</div>
+
+</div>
 </footer>
 
 
-<a
-class="wa"
-href="https://wa.me/923196488623"
-target="_blank">
-
-☏
-
-</a>
+<div class="toast" id="toast">
+Added to cart ✓
+</div>
 
 
 <script>
 
-let cart=[];
+let cart=0;
 
+function addToCart(name){
 
-function add(name,price){
+cart++;
 
-let x=cart.find(i=>i.name===name);
+document.getElementById('count').textContent=cart;
 
-if(x)
+const t=document.getElementById('toast');
 
-x.qty++;
+t.textContent=name+' added to cart ✓';
 
-else
+t.classList.add('show');
 
-cart.push({
-name:name,
-price:price,
-qty:1
-});
-
-render();
-
-document
-.getElementById("checkout")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
-
-function qty(i,n){
-
-cart[i].qty+=n;
-
-if(cart[i].qty<1)
-
-cart.splice(i,1);
-
-render();
-
-}
-
-
-function render(){
-
-let total=0;
-
-document
-.getElementById("count")
-.textContent=
-cart.reduce(
-(a,b)=>a+b.qty,
-0
-);
-
-let box=
-document.getElementById("cart");
-
-if(!cart.length){
-
-box.innerHTML=
-"<p style='color:#777'>Cart empty hai.</p>";
-
-document
-.getElementById("total")
-.textContent=
-"Total: Rs. 0";
-
-return;
-
-}
-
-
-box.innerHTML=
-cart.map((x,i)=>{
-
-let subtotal=
-x.price*x.qty;
-
-total+=subtotal;
-
-return `
-
-<div class="row">
-
-<div>
-
-<b>${x.name}</b>
-
-<br>
-
-Rs. ${x.price.toLocaleString()}
-× ${x.qty}
-
-</div>
-
-<div class="qty">
-
-<button
-type="button"
-onclick="qty(${i},-1)">
-−
-</button>
-
-${x.qty}
-
-<button
-type="button"
-onclick="qty(${i},1)">
-+
-</button>
-
-</div>
-
-</div>
-
-`;
-
-}).join("");
-
-
-document
-.getElementById("total")
-.textContent=
-"Total: Rs. "+
-total.toLocaleString();
-
-}
-
-
-function place(e){
-
-e.preventDefault();
-
-if(!cart.length){
-
-alert(
-"Pehle product cart mein add karein."
-);
-
-return;
-
-}
-
-
-let total=0;
-
-
-let items=
-cart.map(x=>{
-
-let s=
-x.price*x.qty;
-
-total+=s;
-
-return "• "+
-x.name+
-" — Qty: "+
-x.qty+
-" — Rs. "+
-s.toLocaleString();
-
-}).join("\n");
-
-
-let msg=
-"*NEW ORDER - STYLE BAZAAR PK*\n\n"+
-"*Products:*\n"+
-items+
-"\n\n"+
-"*Total: Rs. "+
-total.toLocaleString()+
-"*\n\n"+
-"*Name:* "+
-document.getElementById("name").value+
-"\n"+
-"*Phone:* "+
-document.getElementById("phone").value+
-"\n"+
-"*Address:* "+
-document.getElementById("address").value+
-"\n"+
-"*Note:* "+
-document.getElementById("note").value;
-
-
-window.open(
-"https://wa.me/923196488623?text="+
-encodeURIComponent(msg),
-"_blank"
+setTimeout(
+()=>t.classList.remove('show'),
+1800
 );
 
 }
 
 
-function filter(c,b){
+let total=8*3600+24*60+59;
 
-document
-.querySelectorAll(".cat")
-.forEach(x=>
-x.classList.remove("active")
-);
+setInterval(()=>{
 
-b.classList.add("active");
+total=Math.max(0,total-1);
 
+let h=Math.floor(total/3600);
 
-document
-.querySelectorAll(".product")
-.forEach(x=>{
+let m=Math.floor((total%3600)/60);
 
-x.style.display=
-c==="all" ||
-x.dataset.cat===c
-?"block"
-:"none";
+let s=total%60;
 
-});
+document.getElementById('hh').textContent=
+String(h).padStart(2,'0');
 
-}
+document.getElementById('mm').textContent=
+String(m).padStart(2,'0');
 
+document.getElementById('ss').textContent=
+String(s).padStart(2,'0');
 
-render();
+},1000);
 
 </script>
 
